@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clínica Dental Nova | Tu Sonrisa, Nuestra Pasión</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        dental: {
+                            50: '#f0f9ff',
+                            100: '#e0f2fe',
+                            500: '#0ea5e9', // Sky blue
+                            600: '#0284c7',
+                            800: '#075985',
+                            900: '#0c4a6e',
+                        },
+                        accent: {
+                            500: '#14b8a6', // Teal
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Custom Styles for smooth details */
+        .glass-nav {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+        }
+        .hero-bg {
+            background-image: linear-gradient(rgba(12, 74, 110, 0.7), rgba(12, 74, 110, 0.6)), url('https://images.unsplash.com/photo-1629909613654-28e377c37b09?q=80&w=2068&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+        .service-card {
+            transition: all 0.3s ease;
+        }
+        .service-card:hover {
+            transform: translateY(-5px);
+        }
+        /* Hide scrollbar for gallery but keep functionality */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+</head>
+<body class="font-sans text-gray-600 antialiased">
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 glass-nav transition-all duration-300" id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <!-- Logo -->
+                <div class="flex-shrink-0 flex items-center gap-2 cursor-pointer" onclick="window.scrollTo(0,0)">
+                    <div class="bg-dental-600 text-white p-2 rounded-lg">
+                        <i class="fa-solid fa-tooth text-2xl"></i>
+                    </div>
+                    <div>
+                        <span class="font-bold text-xl text-dental-900 block leading-none">NOVA</span>
+                        <span class="text-xs text-dental-600 font-medium tracking-widest">DENTAL</span>
+                    </div>
+                </div>
+
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex space-x-8 items-center">
+                    <a href="#inicio" class="text-gray-700 hover:text-dental-600 font-medium transition">Inicio</a>
+                    <a href="#servicios" class="text-gray-700 hover:text-dental-600 font-medium transition">Tratamientos</a>
+                    <a href="#equipo" class="text-gray-700 hover:text-dental-600 font-medium transition">Equipo</a>
+                    <a href="#testimonios" class="text-gray-700 hover:text-dental-600 font-medium transition">Pacientes</a>
+                    <a href="#contacto" class="bg-dental-600 hover:bg-dental-700 text-white px-6 py-2.5 rounded-full font-medium transition shadow-lg shadow-dental-500/30">
+                        Pedir Cita
+                    </a>
+                </div>
+
+                <!-- Mobile menu button -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-btn" class="text-gray-700 hover:text-dental-600 focus:outline-none">
+                        <i class="fa-solid fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Panel -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-100 absolute w-full shadow-lg">
+            <div class="px-4 pt-2 pb-6 space-y-2">
+                <a href="#inicio" class="block px-3 py-3 rounded-md text-base font-medium text-gray-700 hover:text-dental-600 hover:bg-dental-50">Inicio</a>
+                <a href="#servicios" class="block px-3 py-3 rounded-md text-base font-medium text-gray-700 hover:text-dental-600 hover:bg-dental-50">Tratamientos</a>
+                <a href="#equipo" class="block px-3 py-3 rounded-md text-base font-medium text-gray-700 hover:text-dental-600 hover:bg-dental-50">Equipo</a>
+                <a href="#contacto" class="block px-3 py-3 mt-4 text-center rounded-md text-base font-medium bg-dental-600 text-white hover:bg-dental-700">Agendar Cita</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="inicio" class="relative h-screen flex items-center hero-bg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
+            <div class="max-w-2xl text-white">
+                <div class="inline-block bg-accent-500/90 text-white px-4 py-1 rounded-full text-sm font-semibold mb-6 animate-fade-in-up">
+                    <i class="fa-solid fa-star mr-2 text-yellow-300"></i> Tecnología de Vanguardia
+                </div>
+                <h1 class="text-5xl md:text-6xl font-bold leading-tight mb-6 drop-shadow-lg">
+                    Cuidamos tu sonrisa <br/>con delicadeza
+                </h1>
+                <p class="text-xl md:text-2xl text-gray-100 mb-8 font-light leading-relaxed drop-shadow-md">
+                    Experimenta una odontología moderna, sin dolor y enfocada en tu bienestar integral. Tu salud bucal en las mejores manos.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4">
+                    <a href="#contacto" class="px-8 py-4 bg-dental-600 hover:bg-dental-500 text-white rounded-full font-semibold text-lg transition shadow-lg text-center">
+                        Reservar turno
+                    </a>
+                    <a href="#servicios" class="px-8 py-4 bg-white/10 hover:bg-white/20 backdrop-blur-md border border-white/30 text-white rounded-full font-semibold text-lg transition text-center flex items-center justify-center gap-2">
+                        <i class="fa-solid fa-play-circle"></i> Ver tratamientos
+                    </a>
+                </div>
+                
+                <!-- Stats -->
+                <div class="mt-12 grid grid-cols-3 gap-8 border-t border-white/20 pt-8">
+                    <div>
+                        <span class="block text-3xl font-bold">15+</span>
+                        <span class="text-sm text-gray-300">Años Exp.</span>
+                    </div>
+                    <div>
+                        <span class="block text-3xl font-bold">5k+</span>
+                        <span class="text-sm text-gray-300">Pacientes</span>
+                    </div>
+                    <div>
+                        <span class="block text-3xl font-bold">24/7</span>
+                        <span class="text-sm text-gray-300">Emergencias</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features / Info Bar -->
+    <section class="bg-white py-12 relative -mt-10 z-20 rounded-t-3xl shadow-xl mx-4 md:mx-0">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="flex items-start gap-4 p-4">
+                    <div class="bg-dental-100 p-3 rounded-full text-dental-600">
+                        <i class="fa-solid fa-clock text-2xl"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-bold text-gray-900 text-lg">Horario Flexible</h3>
+                        <p class="text-sm text-gray-500 mt-1">Lun - Vie: 9:00 - 20:00<br>Sábados: 9:00 - 14:00</p>
+                    </div>
+                </div>
+                <div class="flex items-start gap-4 p-4 border-l-0 md:border-l border-gray-100">
+                    <div class="bg-dental-100 p-3 rounded-full text-dental-600">
+                        <i class="fa-solid fa-location-dot text-2xl"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-bold text-gray-900 text-lg">Ubicación Céntrica</h3>
+                        <p class="text-sm text-gray-500 mt-1">Av. Libertad 1234, Centro<br>Estacionamiento gratuito</p>
+                    </div>
+                </div>
+                <div class="flex items-start gap-4 p-4 border-l-0 md:border-l border-gray-100">
+                    <div class="bg-dental-100 p-3 rounded-full text-dental-600">
+                        <i class="fa-solid fa-phone-volume text-2xl"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-bold text-gray-900 text-lg">Contacto Directo</h3>
+                        <p class="text-sm text-gray-500 mt-1">+34 912 345 678<br>info@dentalnova.com</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="servicios" class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <span class="text-dental-600 font-semibold tracking-wide uppercase text-sm">Nuestros Servicios</span>
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mt-2">Tratamientos Integrales</h2>
+                <div class="w-20 h-1 bg-dental-500 mx-auto mt-4 rounded-full"></div>
+                <p class="mt-4 text-gray-600 max-w-2xl mx-auto">Utilizamos la última tecnología para ofrecerte diagnósticos precisos y tratamientos efectivos.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Card 1 -->
+                <div class="service-card bg-white p-8 rounded-2xl shadow-sm border border-gray-100 group hover:border-dental-200">
+                    <div class="w-14 h-14 bg-dental-50 rounded-xl flex items-center justify-center text-dental-600 mb-6 group-hover:bg-dental-600 group-hover:text-white transition-colors">
+                        <i class="fa-solid fa-teeth text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-3">Implantes Dentales</h3>
+                    <p class="text-gray-500 mb-4 leading-relaxed">Recupera la funcionalidad y estética de tu boca con implantes de titanio de primera calidad.</p>
+                    <a href="#contacto" class="text-dental-600 font-semibold group-hover:text-dental-800 flex items-center gap-2">Más info <i class="fa-solid fa-arrow-right text-sm"></i></a>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="service-card bg-white p-8 rounded-2xl shadow-sm border border-gray-100 group hover:border-dental-200">
+                    <div class="w-14 h-14 bg-dental-50 rounded-xl flex items-center justify-center text-dental-600 mb-6 group-hover:bg-dental-600 group-hover:text-white transition-colors">
+                        <i class="fa-solid fa-wand-magic-sparkles text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-3">Estética Dental</h3>
+                    <p class="text-gray-500 mb-4 leading-relaxed">Diseño de sonrisas, carillas de porcelana y blanqueamientos para una sonrisa radiante.</p>
+                    <a href="#contacto" class="text-dental-600 font-semibold group-hover:text-dental-800 flex items-center gap-2">Más info <i class="fa-solid fa-arrow-right text-sm"></i></a>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="service-card bg-white p-8 rounded-2xl shadow-sm border border-gray-100 group hover:border-dental-200">
+                    <div class="w-14 h-14 bg-dental-50 rounded-xl flex items-center justify-center text-dental-600 mb-6 group-hover:bg-dental-600 group-hover:text-white transition-colors">
+                        <i class="fa-solid fa-teeth-open text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-3">Ortodoncia Invisible</h3>
+                    <p class="text-gray-500 mb-4 leading-relaxed">Alineadores transparentes (Invisalign) para corregir tu mordida sin que nadie lo note.</p>
+                    <a href="#contacto" class="text-dental-600 font-semibold group-hover:text-dental-800 flex items-center gap-2">Más info <i class="fa-solid fa-arrow-right text-sm"></i></a>
+                </div>
+                
+                <!-- Card 4 -->
+                <div class="service-card bg-white p-8 rounded-2xl shadow-sm border border-gray-100 group hover:border-dental-200">
+                    <div class="w-14 h-14 bg-dental-50 rounded-xl flex items-center justify-center text-dental-600 mb-6 group-hover:bg-dental-600 group-hover:text-white transition-colors">
+                        <i class="fa-solid fa-child-reaching text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-3">Odontopediatría</h3>
+                    <p class="text-gray-500 mb-4 leading-relaxed">Cuidado especial para los más pequeños en un ambiente divertido y seguro.</p>
+                    <a href="#contacto" class="text-dental-600 font-semibold group-hover:text-dental-800 flex items-center gap-2">Más info <i class="fa-solid fa-arrow-right text-sm"></i></a>
+                </div>
+
+                <!-- Card 5 -->
+                <div class="service-card bg-white p-8 rounded-2xl shadow-sm border border-gray-100 group hover:border-dental-200">
+                    <div class="w-14 h-14 bg-dental-50 rounded-xl flex items-center justify-center text-dental-600 mb-6 group-hover:bg-dental-600 group-hover:text-white transition-colors">
+                        <i class="fa-solid fa-virus-slash text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-3">Periodoncia</h3>
+                    <p class="text-gray-500 mb-4 leading-relaxed">Tratamiento y prevención de enfermedades de las encías para mantener tus dientes firmes.</p>
+                    <a href="#contacto" class="text-dental-600 font-semibold group-hover:text-dental-800 flex items-center gap-2">Más info <i class="fa-solid fa-arrow-right text-sm"></i></a>
+                </div>
+
+                <!-- Card 6 -->
+                <div class="service-card bg-white p-8 rounded-2xl shadow-sm border border-gray-100 group hover:border-dental-200">
+                    <div class="w-14 h-14 bg-dental-50 rounded-xl flex items-center justify-center text-dental-600 mb-6 group-hover:bg-dental-600 group-hover:text-white transition-colors">
+                        <i class="fa-solid fa-heart-pulse text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-3">Urgencias 24h</h3>
+                    <p class="text-gray-500 mb-4 leading-relaxed">Atención inmediata para dolores agudos, roturas o infecciones que no pueden esperar.</p>
+                    <a href="#contacto" class="text-dental-600 font-semibold group-hover:text-dental-800 flex items-center gap-2">Más info <i class="fa-solid fa-arrow-right text-sm"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About / Doctor Section -->
+    <section id="equipo" class="py-20 bg-white overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col lg:flex-row items-center gap-12">
+                <div class="lg:w-1/2 relative">
+                    <div class="absolute -top-4 -left-4 w-24 h-24 bg-dots-pattern opacity-20"></div>
+                    <div class="relative rounded-2xl overflow-hidden shadow-2xl">
+                        <img src="https://images.unsplash.com/photo-1606811841689-23dfddce3e95?q=80&w=1974&auto=format&fit=crop" alt="Doctora Principal" class="w-full h-auto object-cover">
+                        <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-6 text-white">
+                            <h4 class="text-xl font-bold">Dra. María González</h4>
+                            <p class="text-sm opacity-90">Fundadora & Ortodoncista</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="lg:w-1/2">
+                    <span class="text-dental-600 font-semibold tracking-wide uppercase text-sm">Conoce al equipo</span>
+                    <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mt-2 mb-6">Expertos comprometidos con tu salud</h2>
+                    <p class="text-gray-600 text-lg leading-relaxed mb-6">
+                        En Clínica Dental Nova, creemos que cada paciente es único. La Dra. González y su equipo cuentan con más de 15 años de experiencia transformando vidas a través de sonrisas saludables.
+                    </p>
+                    <p class="text-gray-600 leading-relaxed mb-8">
+                        Nos capacitamos constantemente en las últimas técnicas globales para garantizar tratamientos mínimamente invasivos y resultados duraderos.
+                    </p>
+                    
+                    <ul class="space-y-4 mb-8">
+                        <li class="flex items-center gap-3">
+                            <i class="fa-solid fa-check-circle text-accent-500 text-xl"></i>
+                            <span class="text-gray-700">Miembros de la Sociedad de Ortodoncia</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i class="fa-solid fa-check-circle text-accent-500 text-xl"></i>
+                            <span class="text-gray-700">Tecnología de escaneo 3D</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i class="fa-solid fa-check-circle text-accent-500 text-xl"></i>
+                            <span class="text-gray-700">Atención personalizada y cercana</span>
+                        </li>
+                    </ul>
+
+                    <button onclick="document.getElementById('contacto').scrollIntoView()" class="border-2 border-dental-600 text-dental-600 hover:bg-dental-600 hover:text-white px-8 py-3 rounded-full font-semibold transition duration-300">
+                        Conocer más
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA / Promo -->
+    <section class="py-16 bg-dental-600 text-white relative overflow-hidden">
+        <!-- Decorative circles -->
+        <div class="absolute top-0 right-0 -mr-20 -mt-20 w-64 h-64 rounded-full bg-white opacity-10"></div>
+        <div class="absolute bottom-0 left-0 -ml-20 -mb-20 w-40 h-40 rounded-full bg-white opacity-10"></div>
+        
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+            <h2 class="text-3xl md:text-4xl font-bold mb-4">¿Primera vez con nosotros?</h2>
+            <p class="text-xl text-dental-100 mb-8 max-w-2xl mx-auto">Obtén una <span class="font-bold text-white">consulta de diagnóstico + radiografía panorámica GRATIS</span> al reservar tu primera cita online.</p>
+            <a href="#contacto" class="inline-block bg-white text-dental-700 hover:bg-gray-100 font-bold py-3 px-8 rounded-full shadow-lg transition transform hover:scale-105">
+                Reclamar Promoción
+            </a>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contacto" class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                <!-- Contact Info -->
+                <div>
+                    <span class="text-dental-600 font-semibold tracking-wide uppercase text-sm">Contacto</span>
+                    <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mt-2 mb-6">Estamos aquí para ayudarte</h2>
+                    <p class="text-gray-600 mb-8">Déjanos tus datos y nos pondremos en contacto contigo lo antes posible para confirmar tu cita.</p>
+                    
+                    <div class="space-y-6">
+                        <div class="flex items-start gap-4">
+                            <div class="w-12 h-12 bg-white rounded-lg shadow-sm flex items-center justify-center text-dental-600 shrink-0">
+                                <i class="fa-solid fa-location-dot text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-gray-900">Visítanos</h4>
+                                <p class="text-gray-600">Av. Libertad 1234, Planta Baja<br>Ciudad Centro, CP 28001</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-4">
+                            <div class="w-12 h-12 bg-white rounded-lg shadow-sm flex items-center justify-center text-dental-600 shrink-0">
+                                <i class="fa-solid fa-phone text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-gray-900">Llámanos</h4>
+                                <p class="text-gray-600">+34 912 345 678</p>
+                                <p class="text-xs text-green-600 font-semibold mt-1"><i class="fa-solid fa-circle text-[8px] mr-1"></i> Líneas abiertas ahora</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-4">
+                            <div class="w-12 h-12 bg-white rounded-lg shadow-sm flex items-center justify-center text-dental-600 shrink-0">
+                                <i class="fa-solid fa-envelope text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-gray-900">Escríbenos</h4>
+                                <p class="text-gray-600">citas@dentalnova.com</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Map Placeholder -->
+                    <div class="mt-8 h-48 bg-gray-200 rounded-xl overflow-hidden relative shadow-inner">
+                        <img src="https://images.unsplash.com/photo-1524661135-423995f22d0b?q=80&w=1774&auto=format&fit=crop" class="w-full h-full object-cover opacity-60" alt="Mapa">
+                        <a href="#" class="absolute inset-0 flex items-center justify-center bg-black/10 hover:bg-black/20 transition group">
+                            <div class="bg-white px-4 py-2 rounded-lg shadow-lg text-sm font-semibold flex items-center gap-2">
+                                <i class="fa-solid fa-map-location-dot text-dental-600"></i> Ver en Google Maps
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Form -->
+                <div class="bg-white p-8 md:p-10 rounded-3xl shadow-lg border border-gray-100">
+                    <h3 class="text-2xl font-bold text-gray-900 mb-6">Solicitar Cita</h3>
+                    <form id="contactForm" class="space-y-5">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-1">Nombre</label>
+                                <input type="text" required class="w-full px-4 py-3 rounded-lg bg-gray-50 border-transparent focus:border-dental-500 focus:bg-white focus:ring-0 transition duration-200" placeholder="Juan Pérez">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-1">Teléfono</label>
+                                <input type="tel" required class="w-full px-4 py-3 rounded-lg bg-gray-50 border-transparent focus:border-dental-500 focus:bg-white focus:ring-0 transition duration-200" placeholder="600 000 000">
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-1">Email</label>
+                            <input type="email" required class="w-full px-4 py-3 rounded-lg bg-gray-50 border-transparent focus:border-dental-500 focus:bg-white focus:ring-0 transition duration-200" placeholder="juan@ejemplo.com">
+                        </div>
+
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-1">Tratamiento de interés</label>
+                            <select class="w-full px-4 py-3 rounded-lg bg-gray-50 border-transparent focus:border-dental-500 focus:bg-white focus:ring-0 transition duration-200 text-gray-600">
+                                <option>Revisión General / Limpieza</option>
+                                <option>Ortodoncia / Brackets</option>
+                                <option>Implantes</option>
+                                <option>Estética Dental</option>
+                                <option>Dolor / Urgencia</option>
+                                <option>Otro</option>
+                            </select>
+                        </div>
+
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-1">Mensaje (Opcional)</label>
+                            <textarea rows="3" class="w-full px-4 py-3 rounded-lg bg-gray-50 border-transparent focus:border-dental-500 focus:bg-white focus:ring-0 transition duration-200" placeholder="¿Prefieres horario de mañana o tarde?"></textarea>
+                        </div>
+
+                        <button type="submit" class="w-full bg-dental-600 text-white font-bold py-4 rounded-lg hover:bg-dental-700 transition shadow-lg hover:shadow-xl transform hover:-translate-y-0.5">
+                            Confirmar Solicitud
+                        </button>
+                        <p class="text-xs text-gray-400 text-center mt-4">Al enviar, aceptas nuestra política de privacidad.</p>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white pt-16 pb-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
+                <!-- Brand -->
+                <div>
+                    <div class="flex items-center gap-2 mb-6">
+                        <i class="fa-solid fa-tooth text-dental-500 text-2xl"></i>
+                        <span class="font-bold text-xl tracking-wider">NOVA<span class="text-dental-500">DENTAL</span></span>
+                    </div>
+                    <p class="text-gray-400 text-sm leading-relaxed mb-6">
+                        Clínica dental comprometida con la excelencia y el trato humano. Tu sonrisa es nuestra mejor carta de presentación.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-dental-600 transition"><i class="fa-brands fa-facebook-f"></i></a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-dental-600 transition"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-dental-600 transition"><i class="fa-brands fa-whatsapp"></i></a>
+                    </div>
+                </div>
+
+                <!-- Links -->
+                <div>
+                    <h4 class="text-lg font-bold mb-6">Enlaces Rápidos</h4>
+                    <ul class="space-y-3 text-gray-400 text-sm">
+                        <li><a href="#inicio" class="hover:text-dental-500 transition">Inicio</a></li>
+                        <li><a href="#servicios" class="hover:text-dental-500 transition">Tratamientos</a></li>
+                        <li><a href="#equipo" class="hover:text-dental-500 transition">Equipo Médico</a></li>
+                        <li><a href="#testimonios" class="hover:text-dental-500 transition">Testimonios</a></li>
+                        <li><a href="#" class="hover:text-dental-500 transition">Blog Dental</a></li>
+                    </ul>
+                </div>
+
+                <!-- Services List -->
+                <div>
+                    <h4 class="text-lg font-bold mb-6">Tratamientos</h4>
+                    <ul class="space-y-3 text-gray-400 text-sm">
+                        <li><a href="#" class="hover:text-dental-500 transition">Implantes Dentales</a></li>
+                        <li><a href="#" class="hover:text-dental-500 transition">Ortodoncia Invisible</a></li>
+                        <li><a href="#" class="hover:text-dental-500 transition">Blanqueamiento</a></li>
+                        <li><a href="#" class="hover:text-dental-500 transition">Carillas Estéticas</a></li>
+                        <li><a href="#" class="hover:text-dental-500 transition">Endodoncia</a></li>
+                    </ul>
+                </div>
+
+                <!-- Legal -->
+                <div>
+                    <h4 class="text-lg font-bold mb-6">Legal</h4>
+                    <ul class="space-y-3 text-gray-400 text-sm">
+                        <li><a href="#" class="hover:text-dental-500 transition">Aviso Legal</a></li>
+                        <li><a href="#" class="hover:text-dental-500 transition">Política de Privacidad</a></li>
+                        <li><a href="#" class="hover:text-dental-500 transition">Política de Cookies</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center text-sm text-gray-500">
+                <p>&copy; 2023 Clínica Dental Nova. Todos los derechos reservados.</p>
+                <p class="mt-2 md:mt-0">Diseñado con <i class="fa-solid fa-heart text-red-500 mx-1"></i> para sonrisas sanas.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Notification Toast (Hidden by default) -->
+    <div id="notification" class="fixed bottom-5 right-5 bg-white border-l-4 border-green-500 text-gray-800 px-6 py-4 rounded shadow-2xl transform translate-y-24 transition-transform duration-300 z-50 flex items-center gap-4">
+        <div class="text-green-500 text-xl"><i class="fa-solid fa-circle-check"></i></div>
+        <div>
+            <h4 class="font-bold">¡Solicitud Enviada!</h4>
+            <p class="text-sm text-gray-600">Te contactaremos en breve.</p>
+        </div>
+    </div>
+
+    <!-- JavaScript logic -->
+    <script>
+        // Mobile Menu Toggle
+        const btn = document.getElementById('mobile-menu-btn');
+        const menu = document.getElementById('mobile-menu');
+
+        btn.addEventListener('click', () => {
+            menu.classList.toggle('hidden');
+        });
+
+        // Close mobile menu when clicking a link
+        document.querySelectorAll('#mobile-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                menu.classList.add('hidden');
+            });
+        });
+
+        // Form Handling
+        const form = document.getElementById('contactForm');
+        const notification = document.getElementById('notification');
+
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            // Show notification
+            notification.classList.remove('translate-y-24');
+            
+            // Reset form
+            form.reset();
+
+            // Hide notification after 4 seconds
+            setTimeout(() => {
+                notification.classList.add('translate-y-24');
+            }, 4000);
+        });
+
+        // Navbar Scroll Effect (Glassmorphism on scroll)
+        const navbar = document.getElementById('navbar');
+        
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 10) {
+                navbar.classList.add('shadow-md');
+            } else {
+                navbar.classList.remove('shadow-md');
+            }
+        });
+    </script>
+</body>
+</html>
